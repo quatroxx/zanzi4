@@ -3,60 +3,120 @@ body {
   font-family: 'Playfair Display', serif;
   margin: 0;
   padding: 0;
-  background: #ffffff;
+  background: #fff;
   color: #111;
 }
+
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px 40px;
   border-bottom: 1px solid #eee;
-  position: relative;
+  z-index: 999;
 }
+
 .header-left {
   display: flex;
   align-items: center;
+  gap: 30px;
 }
+
 .logo {
-  font-weight: bold;
-  font-size: 20px;
-  margin-right: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
+
 .menu-icon {
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 600;
   cursor: pointer;
   user-select: none;
+  font-family: 'Playfair Display', serif;
 }
+
 .mobile-menu {
-  display: none;
-  position: absolute;
-  top: 70px;
-  left: 20px;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
   background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  z-index: 100;
-  animation: slideDown 0.3s ease-in-out;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  transition: left 0.4s ease-in-out;
+  z-index: 1000;
+  padding: 60px 20px;
 }
+
 .mobile-menu ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
-.mobile-menu li {
-  border-bottom: 1px solid #eee;
+
+.mobile-menu ul li {
+  margin-bottom: 30px;
 }
-.mobile-menu li a {
-  display: block;
-  padding: 12px 20px;
-  color: #111;
+
+.mobile-menu ul li a {
   text-decoration: none;
+  color: #111;
+  font-size: 22px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+
+.mobile-menu ul li a:hover {
+  color: #999;
 }
-.show-menu {
-  display: block;
+
+.mobile-menu.show-menu {
+  left: 0;
+}
+
+main {
+  padding-top: 100px;
+}
+
+.hero {
+  padding: 60px;
+  text-align: center;
+}
+
+.lookbook {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding: 60px;
+}
+
+.item img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item h2 {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.about {
+  text-align: center;
+  padding: 60px 40px;
+  background-color: #fafafa;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #888;
 }
