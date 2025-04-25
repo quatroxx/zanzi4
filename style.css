@@ -134,3 +134,10 @@ footer {
   width: 100%;
   display: block;
 }
+.close-btn {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 30px;
+}
