@@ -134,22 +134,17 @@ footer {
   width: 100%;
   display: block;
 }
+
 .close-btn {
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: right;
-  margin-bottom: 30px;
-}
-.close-btn {
-  font-size: 60px;
-  font-weight: 300;
+  display: inline-block;
   cursor: pointer;
   text-align: right;
   margin-bottom: 40px;
-  line-height: 1;
   padding-right: 10px;
+  transition: transform 0.3s ease;
 }
-close-btn:hover {
+
+.close-btn:hover {
   transform: rotate(90deg);
 }
+
