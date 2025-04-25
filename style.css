@@ -141,3 +141,15 @@ footer {
   text-align: right;
   margin-bottom: 30px;
 }
+.close-btn {
+  font-size: 48px;
+  font-weight: 300;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 40px;
+  line-height: 1;
+  padding-right: 10px;
+}
+close-btn:hover {
+  transform: rotate(90deg);
+}
