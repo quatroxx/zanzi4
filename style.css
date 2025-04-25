@@ -47,7 +47,7 @@ header {
   height: 100%;
   background-color: #fff;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
-  transition: left 0.4s ease-in-out;
+  transition: left 1.0s ease-in-out;
   z-index: 1000;
   padding: 60px 20px;
 }
