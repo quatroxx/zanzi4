@@ -20,3 +20,21 @@ document.addEventListener('click', function(event) {
     menu.classList.remove("show-menu");
   }
 });
+document.addEventListener('DOMContentLoaded', function() {
+  var fadeElems = document.querySelectorAll('.fade-in');
+
+  function checkFadeIn() {
+    var triggerBottom = window.innerHeight * 0.9;
+
+    fadeElems.forEach(function(elem) {
+      const box = elem.getBoundingClientRect();
+      if (box.top < triggerBottom) {
+        elem.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkFadeIn);
+  checkFadeIn(); // Sayfa yüklenirken kontrol et
+});
+
