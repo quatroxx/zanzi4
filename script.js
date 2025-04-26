@@ -37,4 +37,22 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', checkFadeIn);
   checkFadeIn(); // Sayfa yüklenirken kontrol et
 });
+// Sayfa açılırken yumuşak fade-in
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.add('visible');
+});
+
+// Linklere tıklayınca fade-out geçiş efekti
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href && href.startsWith("#") === false && !href.startsWith('javascript')) {
+      e.preventDefault();
+      document.body.classList.remove('visible');
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500); // fade-out süresiyle eşleşmeli
+    }
+  });
+});
 
