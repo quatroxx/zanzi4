@@ -14,6 +14,7 @@ document.addEventListener('click', function(event) {
   const toggle = document.querySelector(".hamburger");
   const closeBtn = document.querySelector(".close-btn");
   const body = document.querySelector('main');
+  const hamburger = document.querySelector('.hamburger'); // Bunu mutlaka ekle!
 
   if (
     menu.classList.contains("show-menu") &&
@@ -23,8 +24,10 @@ document.addEventListener('click', function(event) {
   ) {
     menu.classList.remove("show-menu");
     body.classList.remove("blurred");
+    hamburger.classList.remove("active"); // İşte eksik olan bu satır!
   }
 });
+
 document.addEventListener('DOMContentLoaded', function() {
   var fadeElems = document.querySelectorAll('.fade-in');
 
