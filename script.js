@@ -18,6 +18,8 @@ document.addEventListener('click', function(event) {
     !(closeBtn && closeBtn.contains(event.target))
   ) {
     menu.classList.remove("show-menu");
+body.classList.remove("blurred");
+
   }
 });
 document.addEventListener('DOMContentLoaded', function() {
