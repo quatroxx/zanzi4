@@ -2,6 +2,7 @@ function toggleMenu() {
   var menu = document.getElementById("mobileMenu");
   var body = document.querySelector('main');
   menu.classList.toggle("show-menu");
+  body.classList.toggle("blurred");
 }
 
 document.addEventListener('click', function(event) {
