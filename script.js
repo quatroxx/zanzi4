@@ -1,9 +1,13 @@
 function toggleMenu() {
   var menu = document.getElementById("mobileMenu");
   var body = document.querySelector('main');
+  var hamburger = document.querySelector('.hamburger');
+
   menu.classList.toggle("show-menu");
   body.classList.toggle("blurred");
+  hamburger.classList.toggle("active");
 }
+
 
 document.addEventListener('click', function(event) {
   const menu = document.getElementById("mobileMenu");
