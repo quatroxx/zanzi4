@@ -89,14 +89,14 @@ main {
 
 .lookbook {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  padding: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 30px;
 }
 
 .item img {
   width: 100%;
-  aspect-ratio: 2/3;
+  aspect-ratio: 3/4;
   object-fit: cover;
   border-radius: 4px;
 }
