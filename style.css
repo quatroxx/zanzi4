@@ -151,4 +151,7 @@ footer {
 .close-btn:hover {
   transform: rotate(90deg);
 }
-
+.blurred {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
