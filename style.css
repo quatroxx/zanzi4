@@ -1,3 +1,4 @@
+/* Genel */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -9,15 +10,23 @@ h1, h2 {
   font-family: 'Playfair Display', serif;
 }
 
+.page-transition {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.page-transition.visible {
+  opacity: 1;
+}
 
+/* Header */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #fff;
+  background: #fff;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
   padding: 20px 40px;
   border-bottom: 1px solid #eee;
   z-index: 999;
@@ -35,94 +44,6 @@ header {
   letter-spacing: 1px;
 }
 
-.menu-icon {
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-  font-family: 'Playfair Display', serif;
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 25%;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
-  transition: left 0.5s ease-in-out;
-  z-index: 1000;
-  padding: 60px 20px;
-}
-
-.mobile-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.mobile-menu ul li {
-  margin-bottom: 30px;
-}
-
-.mobile-menu ul li a {
-  text-decoration: none;
-  color: #111;
-  font-size: 22px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.mobile-menu ul li a:hover {
-  color: #999;
-}
-
-.mobile-menu.show-menu {
-  left: 0;
-}
-
-main {
-  padding-top: 100px;
-}
-
-.hero {
-  padding: 60px;
-  text-align: center;
-}
-
-.lookbook {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 30px;
-}
-
-.item img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.item h2 {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 16px;
-}
-
-.about {
-  text-align: center;
-  padding: 60px 40px;
-  background-color: #fafafa;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #888;
-}
 .hamburger {
   cursor: pointer;
   display: flex;
@@ -135,14 +56,53 @@ footer {
 .hamburger:hover svg {
   transform: scale(1.1);
 }
-
-.hamburger span {
-  height: 2px;
-  background-color: #111;
-  width: 100%;
-  display: block;
+.hamburger svg rect {
+  transition: all 0.4s ease;
+}
+.hamburger.active .line1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active .line2 {
+  opacity: 0;
+}
+.hamburger.active .line3 {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* Mobil Menü */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 25%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+  transition: left 0.5s ease;
+  z-index: 1000;
+  padding: 60px 20px;
+}
+.mobile-menu.show-menu {
+  left: 0;
+}
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-menu ul li {
+  margin-bottom: 30px;
+}
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #111;
+  font-size: 22px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.mobile-menu ul li a:hover {
+  color: #999;
+}
 .close-btn {
   display: inline-block;
   cursor: pointer;
@@ -151,131 +111,105 @@ footer {
   padding-right: 10px;
   transition: transform 0.3s ease;
 }
-
 .close-btn:hover {
   transform: rotate(90deg);
 }
-.blurred {
-  filter: blur(4px);
-  transition: filter 0.3s ease;
+
+/* Main */
+main {
+  padding-top: 100px;
 }
+
+/* Hero */
+.hero {
+  padding: 60px;
+  text-align: center;
+}
+
+/* Lookbook */
+.lookbook {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 30px;
+  padding: 30px;
+}
+.lookbook::-webkit-scrollbar {
+  height: 6px;
+}
+.lookbook::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 10px;
+}
+
+.product-card {
+  flex: 0 0 auto;
+  width: 260px;
+  scroll-snap-align: start;
+  text-align: center;
+  overflow: hidden;
+}
+.img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 133%; /* 3:4 oran */
+  overflow: hidden;
+}
+.img-container img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+.hover-img {
+  opacity: 0;
+}
+.img-container:hover .hover-img {
+  opacity: 1;
+}
+.img-container:hover .main-img {
+  opacity: 0;
+}
+.product-card h2 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.price {
+  font-size: 16px;
+  color: #555;
+}
+
+/* About */
+.about {
+  text-align: center;
+  padding: 60px 40px;
+  background-color: #fafafa;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Fade-in Animasyon */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.item {
-  position: relative;
-  overflow: hidden;
-}
 
-.item img {
-  width: 100%;
-  aspect-ratio: 2/3;
-  object-fit: cover;
-  border-radius: 4px;
-  transition: transform 0.5s ease;
+/* Blur efekti */
+.blurred {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
 }
-
-.item h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 20px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-
-.item::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-
-.item:hover img {
-  transform: scale(1.05);
-}
-
-.item:hover::after {
-  opacity: 1;
-}
-
-.item:hover h2 {
-  opacity: 1;
-}
-.page-transition {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.hamburger svg rect {
-  transition: all 0.4s ease;
-}
-
-.hamburger.active .line1 {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active .line2 {
-  opacity: 0;
-}
-
-.hamburger.active .line3 {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.page-transition.visible {
-  opacity: 1;
-}
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-.lightbox img {
-  max-width: 80%;
-  max-height: 80%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  border-radius: 8px;
-}
-
-.close-lightbox {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  color: white;
-  font-size: 48px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.close-lightbox:hover {
-  transform: rotate(90deg);
-}
-
