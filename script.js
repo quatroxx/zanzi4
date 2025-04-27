@@ -60,3 +60,8 @@ document.querySelectorAll('a').forEach(link => {
     }
   });
 });
+function toggleFavorite(icon) {
+  const heart = icon.querySelector('.heart');
+  heart.classList.toggle('filled');
+}
+
