@@ -64,4 +64,9 @@ function toggleFavorite(icon) {
   const heart = icon.querySelector('.heart');
   heart.classList.toggle('filled');
 }
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    document.body.classList.add('visible');
+  }
+});
 
