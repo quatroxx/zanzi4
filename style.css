@@ -259,24 +259,23 @@ footer {
 
 .product-info h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  font-weight: 400; /* Daha ince ve zarif */
+  font-size: 15px; /* Biraz daha büyük */
+  font-weight: 400;
   margin: 5px 0 3px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0; /* Hero gibi sıkı harfler */
   color: #111;
   text-decoration: none;
   text-transform: none;
-  line-height: 1.4; /* Satırlar arası biraz boşluk */
+  line-height: 1.6; /* Satır arası rahat */
 }
 
 .product-info .price {
   font-family: 'Playfair Display', serif;
-  font-size: 13px;
-  font-weight: 400; /* Aynı incelik */
+  font-size: 14px;
+  font-weight: 400;
   color: #111;
   margin: 0;
   text-decoration: none;
   text-transform: none;
-  line-height: 1.4;
+  line-height: 1.6;
 }
-
