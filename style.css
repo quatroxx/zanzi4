@@ -7,7 +7,7 @@ body {
   color: #111;
 }
 h1, h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .page-transition {
@@ -258,7 +258,7 @@ footer {
 }
 
 .product-info h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px; /* Biraz daha büyük */
   font-weight: 400;
   margin: 5px 0 3px;
@@ -270,7 +270,7 @@ footer {
 }
 
 .product-info .price {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #111;
