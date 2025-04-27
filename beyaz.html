@@ -1,101 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZANZI Lookbook</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cream Fold - ZANZI</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
+<body class="page-transition">
+
+<header>
+  <div class="header-left">
+    <div class="hamburger" onclick="toggleMenu()">
+      <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect class="line1" y="0" width="28" height="2" fill="black"/>
+        <rect class="line2" y="8" width="28" height="2" fill="black"/>
+        <rect class="line3" y="16" width="28" height="2" fill="black"/>
+      </svg>
+    </div>
     <div class="logo">ZANZI</div>
-    <nav>
-      <ul>
-        <li>Lookbook</li>
-        <li>Runway</li>
-        <li>Stories</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="overlay">
-        <h1>Spring/Summer 2025</h1>
-        <p>Minimal shapes. Modern silhouettes.</p>
-      </div>
-    </section>
-    <section class="lookbook">
+  </div>
+</header>
 
-      <div class="item">
-        <img src="images/cream-fold.jpg" alt="Cream Fold">
-        <h2>Cream Fold</h2>
-      </div>
-    
+<main class="product-detail-page">
+  <section class="product-gallery">
+    <img src="images/beyaz1.jpg" alt="Beyaz Elbise" loading="lazy" class="fade-in">
+    <img src="images/beyaz2.jpg" alt="Beyaz Elbise Hover" loading="lazy" class="fade-in">
+    <img src="images/beyaz3.jpg" alt="Beyaz Elbise Farklı Açı" loading="lazy" class="fade-in">
+  </section>
 
-      <div class="item">
-        <img src="images/espresso-line.jpg" alt="Espresso Line">
-        <h2>Espresso Line</h2>
-      </div>
-    
+  <section class="product-info">
+    <h1>Beyaz Elbise</h1>
+    <p class="price">₺1299</p>
+    <p class="description">
+      Minimal çizgileri ve modern hatları ile ZANZI'nin ikonik beyaz elbisesi.<br>
+      Hafif kumaşı ve zarif duruşu ile 2025 yaz koleksiyonunun en özel parçalarından biri.
+    </p>
+    <a href="#" class="buy-button">SATIN AL</a>
+  </section>
+</main>
 
-      <div class="item">
-        <img src="images/floral-shadow.jpg" alt="Floral Shadow">
-        <h2>Floral Shadow</h2>
-      </div>
-    
+<footer>
+  <p>© 2025 ZANZI — Instagram | Contact</p>
+</footer>
 
-      <div class="item">
-        <img src="images/floral-shadow-full.jpg" alt="Floral Shadow Full">
-        <h2>Floral Shadow Full</h2>
-      </div>
-    
+<script src="script.js"></script>
 
-      <div class="item">
-        <img src="images/urban-edge.jpg" alt="Urban Edge">
-        <h2>Urban Edge</h2>
-      </div>
-    
-
-      <div class="item">
-        <img src="images/chalk-blend.jpg" alt="Chalk Blend">
-        <h2>Chalk Blend</h2>
-      </div>
-    
-
-      <div class="item">
-        <img src="images/soft-curve.jpg" alt="Soft Curve">
-        <h2>Soft Curve</h2>
-      </div>
-    
-
-      <div class="item">
-        <img src="images/linen-structure.jpg" alt="Linen Structure">
-        <h2>Linen Structure</h2>
-      </div>
-    
-
-      <div class="item">
-        <img src="images/back-bloom.jpg" alt="Back Bloom">
-        <h2>Back Bloom</h2>
-      </div>
-    
-
-      <div class="item">
-        <img src="images/mauve-cross.jpg" alt="Mauve Cross">
-        <h2>Mauve Cross</h2>
-      </div>
-    
-    </section>
-    <section class="about">
-      <h2>About ZANZI</h2>
-      <p>ZANZI Lookbook SS25 – a curated edit of silhouettes designed to move with presence.</p>
-    </section>
-  </main>
-  <footer>
-    <p>© 2025 ZANZI — Instagram | Contact</p>
-  </footer>
 </body>
 </html>
