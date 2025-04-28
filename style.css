@@ -259,7 +259,7 @@ footer {
 
 .product-info h2 {
   font-family: 'Inter', sans-serif;
-  font-size: 12px; /* Biraz daha büyük */
+  font-size: 14px; /* Biraz daha büyük */
   font-weight: 300;
   margin: 5px 0 3px;
   letter-spacing: 0; /* Hero gibi sıkı harfler */
@@ -271,7 +271,7 @@ footer {
 
 .product-info .price {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
   color: #111;
   margin: 0;
