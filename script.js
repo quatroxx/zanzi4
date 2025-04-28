@@ -1,3 +1,4 @@
+// Mobil Menü Aç/Kapa Fonksiyonu
 function toggleMenu() {
   var menu = document.getElementById("mobileMenu");
   var body = document.querySelector('main');
@@ -8,12 +9,12 @@ function toggleMenu() {
   hamburger.classList.toggle("active");
 }
 
+// Sayfada Fade-in için ve Mobile Menu'yu Dışarı Tıklayınca Kapatmak için
 document.addEventListener('click', function(event) {
   const menu = document.getElementById("mobileMenu");
   const toggle = document.querySelector(".hamburger");
   const closeBtn = document.querySelector(".close-btn");
   const body = document.querySelector('main');
-  const hamburger = document.querySelector('.hamburger');
 
   if (
     menu.classList.contains("show-menu") &&
@@ -23,10 +24,11 @@ document.addEventListener('click', function(event) {
   ) {
     menu.classList.remove("show-menu");
     body.classList.remove("blurred");
-    hamburger.classList.remove("active");
+    toggle.classList.remove("active");
   }
 });
 
+// Sayfa Yüklenince Fade-in Efekti
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.add('visible');
 
@@ -46,54 +48,54 @@ document.addEventListener('DOMContentLoaded', function() {
   checkFadeIn();
 });
 
-// Linklere tıklayınca fade-out geçiş efekti
+// Linklere Tıklanınca Sayfa Fade-out ile Gitmesi
 document.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
-    if (href && href.startsWith("#") === false && !href.startsWith('javascript')) {
+    if (href && !href.startsWith("#") && !href.startsWith('javascript')) {
       e.preventDefault();
       document.body.classList.remove('visible');
       setTimeout(() => {
         window.location.href = href;
-      }, 500); // fade-out süresi
+      }, 500); // Fade-out süresi
     }
   });
 });
 
-// Favori (kalp) ikonu doldurma
+// Favori (Kalp) İkonu Toggle
 function toggleFavorite(icon) {
   const heart = icon.querySelector('.heart');
   heart.classList.toggle('filled');
 }
-// Sağ butona tıklanınca bir sonraki görsele geç
+
+// Sağ Butona Basınca İleri Kaydırma
 function slideNext(button) {
   const slider = button.parentElement.querySelector('.slider');
   const totalSlides = slider.children.length;
-  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+  let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
   if (currentOffset < totalSlides - 1) {
-    slider.style.transform = `translateX(-${(currentOffset + 1) * 100}%)`;
-    slider.setAttribute('data-offset', currentOffset + 1);
+    currentOffset++;
+    slider.style.transform = `translateX(-${currentOffset * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset);
   }
 }
 
-// Sol butona tıklanınca bir önceki görsele dön
+// Sol Butona Basınca Geri Kaydırma
 function slidePrev(button) {
   const slider = button.parentElement.querySelector('.slider');
-  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+  let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
   if (currentOffset > 0) {
-    slider.style.transform = `translateX(-${(currentOffset - 1) * 100}%)`;
-    slider.setAttribute('data-offset', currentOffset - 1);
+    currentOffset--;
+    slider.style.transform = `translateX(-${currentOffset * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset);
   }
 }
 
-// Sayfa yüklendiğinde slider'ların genişliğini ayarla
-document.addEventListener('DOMContentLoaded', function() {
-  const sliders = document.querySelectorAll('.slider');
-
-  sliders.forEach(function(slider) {
-    const slideCount = slider.children.length;
-    slider.style.width = `${slideCount * 100}%`;
-  });
+// Sayfa Yeniden Yüklendiğinde (Back tuşuyla) Fade-in Efektini Koru
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    document.body.classList.add('visible');
+  }
 });
