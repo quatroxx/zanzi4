@@ -166,6 +166,7 @@ main {
   border-radius: 0; /* Kenarları düz */
 }
 
+/* Hover geçiş efektleri */
 .hover-img {
   opacity: 0;
 }
@@ -175,21 +176,67 @@ main {
 .img-container:hover .main-img {
   opacity: 0;
 }
-
-/* Hover'da hafif büyüme efekti */
 .img-container:hover img {
   transform: scale(1.03);
 }
 
-.product-card h2 {
-  margin: 8px 0 4px;
-  font-size: 16px;
-  text-transform: uppercase;
+/* Ürün Bilgileri */
+.product-info {
+  padding: 10px;
+  text-align: left;
 }
 
-.price {
-  font-size: 15px;
-  color: #555;
+.product-info h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 5px 0 3px;
+  letter-spacing: 0;
+  color: #111;
+  text-decoration: none;
+  text-transform: none;
+  line-height: 1.6;
+}
+
+.product-info .price {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: #111;
+  margin: 0;
+  text-decoration: none;
+  text-transform: none;
+  line-height: 1.6;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* FAVORİ İKONU YENİ YAPI */
+.info-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.favorite-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.heart {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+.heart.filled {
+  fill: red;
+  stroke: red;
 }
 
 /* About */
@@ -235,58 +282,4 @@ footer {
   .lookbook {
     grid-template-columns: 1fr;
   }
-}
-
-/* Favori Kalp İkonu */
-.favorite-icon {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.heart {
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease;
-}
-
-.heart.filled {
-  fill: red;
-  stroke: red;
-}
-
-/* Ürün Bilgileri Düzeni */
-.product-info {
-  padding: 10px;
-  text-align: left;
-}
-
-.product-info h2 {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  margin: 5px 0 3px;
-  letter-spacing: 0;
-  color: #111;
-  text-decoration: none;
-  text-transform: none;
-  line-height: 1.6;
-}
-
-.product-info .price {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 300;
-  color: #111;
-  margin: 0;
-  text-decoration: none;
-  text-transform: none;
-  line-height: 1.6;
-}
-
-.product-card a {
-  text-decoration: none;
-  color: inherit;
 }
