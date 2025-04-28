@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.add('visible');
 
   var fadeElems = document.querySelectorAll('.fade-in');
+  var sliders = document.querySelectorAll('.slider');
 
   function checkFadeIn() {
     var triggerBottom = window.innerHeight * 0.9;
-
     fadeElems.forEach(function(elem) {
       const box = elem.getBoundingClientRect();
       if (box.top < triggerBottom) {
@@ -42,6 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // --- YENİ EKLENDİ: Slider genişliğini içerdiği görsel adedine göre ayarla ---
+  sliders.forEach(function(slider) {
+    const slideCount = slider.children.length;
+    slider.style.width = `${slideCount * 100}%`;
+  });
 
   window.addEventListener('scroll', checkFadeIn);
   checkFadeIn();
