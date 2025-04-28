@@ -186,21 +186,22 @@ main {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;
+  background: transparent; /* <<< Arka plan tamamen şeffaf */
   border: none;
   font-size: 28px;
   cursor: pointer;
   padding: 6px 10px;
   z-index: 10;
-  color: #333;
-  opacity: 0; /* <<< başlangıçta görünmez */
-  transition: opacity 0.3s ease;
+  color: #333; /* <<< Ok rengi sabit */
+  opacity: 0; /* <<< Başlangıçta görünmez */
 }
+
 
 .slider-container:hover .prev,
 .slider-container:hover .next {
-  opacity: 1; /* <<< hover olunca görünür */
+  opacity: 1; /* <<< Slider'ın üstüne gelince görünür */
 }
+
 
 
 
