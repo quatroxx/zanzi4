@@ -213,10 +213,7 @@ main {
   right: 10px;
 }
 
-.prev:hover, .next:hover {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-}
+
 
 /* Ürün Kartı */
 .product-card {
