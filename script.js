@@ -60,13 +60,31 @@ document.querySelectorAll('a').forEach(link => {
     }
   });
 });
+
+// Favori (kalp) ikonu doldurma
 function toggleFavorite(icon) {
   const heart = icon.querySelector('.heart');
   heart.classList.toggle('filled');
 }
-window.addEventListener('pageshow', function(event) {
-  if (event.persisted) {
-    document.body.classList.add('visible');
-  }
-});
 
+// Ürünlerde sağ-sol kaydırma
+function slideNext(button) {
+  const slider = button.parentElement.querySelector('.slider');
+  const totalSlides = slider.children.length;
+  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+
+  if (currentOffset < totalSlides - 1) {
+    slider.style.transform = `translateX(-${(currentOffset + 1) * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset + 1);
+  }
+}
+
+function slidePrev(button) {
+  const slider = button.parentElement.querySelector('.slider');
+  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+
+  if (currentOffset > 0) {
+    slider.style.transform = `translateX(-${(currentOffset - 1) * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset - 1);
+  }
+}
