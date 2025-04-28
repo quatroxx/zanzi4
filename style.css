@@ -185,15 +185,15 @@ main {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: transparent; /* <<< arka plan tamamen şeffaf */
   border: none;
   font-size: 28px;
   cursor: pointer;
   padding: 6px 10px;
   z-index: 10;
   color: #333;
-  border-radius: 50%;
 }
+
 
 .prev {
   left: 10px;
