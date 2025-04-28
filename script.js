@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- YENİ EKLENDİ: Slider genişliğini içerdiği görsel adedine göre ayarla ---
+  // --- YENİ: Slider genişliğini içerdiği resim sayısına göre ayarla ---
   sliders.forEach(function(slider) {
     const slideCount = slider.children.length;
     slider.style.width = `${slideCount * 100}%`;
@@ -73,7 +73,7 @@ function toggleFavorite(icon) {
   heart.classList.toggle('filled');
 }
 
-// Ürünlerde sağ-sol kaydırma
+// Ürün kartlarında sağ-sol kaydırma
 function slideNext(button) {
   const slider = button.parentElement.querySelector('.slider');
   const totalSlides = slider.children.length;
