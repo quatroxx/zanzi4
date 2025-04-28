@@ -130,8 +130,8 @@ main {
 .lookbook {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 1px;
-  row-gap: 80px;
+  column-gap: 1px; /* Sütunlar arası 1px */
+  row-gap: 80px;   /* Satırlar arası 80px */
   padding: 1px;
 }
 .lookbook::-webkit-scrollbar {
@@ -142,62 +142,45 @@ main {
   border-radius: 10px;
 }
 
-/* Slider */
-.slider-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 133%;
-}
-
-.slider {
-  display: flex;
-  height: 100%;
-  transition: transform 0.5s ease;
-}
-
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-/* Slider Butonları */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 6px 10px;
-  z-index: 10;
-  color: #333;
-  border-radius: 50%;
-}
-
-.prev {
-  left: 10px;
-}
-.next {
-  right: 10px;
-}
-
-.prev:hover, .next:hover {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-}
-
-/* Ürün Bilgileri */
 .product-card {
   flex: 0 0 auto;
   width: 100%;
   overflow: hidden;
   text-align: center;
 }
+.img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 133%; /* 3:4 oran */
+  overflow: hidden;
+}
 
+.img-container img {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  border-radius: 0; /* Kenarları düz */
+}
+
+/* Hover geçiş efektleri */
+.hover-img {
+  opacity: 0;
+}
+.img-container:hover .hover-img {
+  opacity: 1;
+}
+.img-container:hover .main-img {
+  opacity: 0;
+}
+.img-container:hover img {
+  transform: scale(1.03);
+}
+
+/* Ürün Bilgileri */
 .product-info {
   padding: 10px;
   text-align: left;
@@ -231,7 +214,7 @@ main {
   color: inherit;
 }
 
-/* FAVORİ İKONU */
+/* FAVORİ İKONU YENİ YAPI */
 .info-top {
   display: flex;
   align-items: center;
