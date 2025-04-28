@@ -130,7 +130,8 @@ main {
 .lookbook {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
+  column-gap: 1px; /* Sütunlar arası 1px */
+  row-gap: 40px;   /* Satırlar arası 40px */
   padding: 1px;
 }
 .lookbook::-webkit-scrollbar {
@@ -162,7 +163,7 @@ main {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-  border-radius: 0; /* KENARLARI DÜZ */
+  border-radius: 0; /* Kenarları düz */
 }
 
 .hover-img {
@@ -221,6 +222,8 @@ footer {
   filter: blur(4px);
   transition: filter 0.3s ease;
 }
+
+/* Responsive */
 @media (max-width: 1024px) {
   .lookbook {
     grid-template-columns: repeat(2, 1fr);
@@ -232,6 +235,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 /* Favori Kalp İkonu */
 .favorite-icon {
   position: absolute;
@@ -251,6 +255,7 @@ footer {
   fill: red;
   stroke: red;
 }
+
 /* Ürün Bilgileri Düzeni */
 .product-info {
   padding: 10px;
@@ -259,14 +264,14 @@ footer {
 
 .product-info h2 {
   font-family: 'Inter', sans-serif;
-  font-size: 14px; /* Biraz daha büyük */
+  font-size: 14px;
   font-weight: 300;
   margin: 5px 0 3px;
-  letter-spacing: 0; /* Hero gibi sıkı harfler */
+  letter-spacing: 0;
   color: #111;
   text-decoration: none;
   text-transform: none;
-  line-height: 1.6; /* Satır arası rahat */
+  line-height: 1.6;
 }
 
 .product-info .price {
@@ -279,6 +284,7 @@ footer {
   text-transform: none;
   line-height: 1.6;
 }
+
 .product-card a {
   text-decoration: none;
   color: inherit;
