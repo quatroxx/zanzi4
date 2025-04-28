@@ -6,6 +6,7 @@ body {
   background: #fff;
   color: #111;
 }
+
 h1, h2 {
   font-family: 'Inter', sans-serif;
 }
@@ -44,21 +45,26 @@ header {
   letter-spacing: 1px;
 }
 
+/* Hamburger Menu */
 .hamburger {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .hamburger svg {
   transition: transform 0.3s ease;
 }
+
 .hamburger:hover svg {
   transform: scale(1.1);
 }
+
 .hamburger svg rect {
   transition: all 0.4s ease;
 }
+
 .hamburger.active .line1 {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -69,7 +75,7 @@ header {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobil Menü */
+/* Mobile Menu */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -82,17 +88,21 @@ header {
   z-index: 1000;
   padding: 60px 20px;
 }
+
 .mobile-menu.show-menu {
   left: 0;
 }
+
 .mobile-menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .mobile-menu ul li {
   margin-bottom: 30px;
 }
+
 .mobile-menu ul li a {
   text-decoration: none;
   color: #111;
@@ -100,9 +110,11 @@ header {
   font-weight: 500;
   transition: color 0.3s ease;
 }
+
 .mobile-menu ul li a:hover {
   color: #999;
 }
+
 .close-btn {
   display: inline-block;
   cursor: pointer;
@@ -111,6 +123,7 @@ header {
   padding-right: 10px;
   transition: transform 0.3s ease;
 }
+
 .close-btn:hover {
   transform: rotate(90deg);
 }
@@ -130,64 +143,85 @@ main {
 .lookbook {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 1px; /* Sütunlar arası 1px */
-  row-gap: 80px;   /* Satırlar arası 80px */
+  column-gap: 1px;
+  row-gap: 80px;
   padding: 1px;
 }
-.lookbook::-webkit-scrollbar {
-  height: 6px;
-}
-.lookbook::-webkit-scrollbar-thumb {
-  background: #aaa;
-  border-radius: 10px;
+
+/* Slider yapısı */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 133%; /* 3:4 oran */
 }
 
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide-item {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  aspect-ratio: 3 / 4;
+}
+
+/* Scroll Butonları */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 6px 10px;
+  z-index: 10;
+  color: #333;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+/* Ürün Kartı */
 .product-card {
   flex: 0 0 auto;
   width: 100%;
   overflow: hidden;
   text-align: center;
 }
-.img-container {
-  position: relative;
-  width: 100%;
-  padding-top: 133%; /* 3:4 oran */
-  overflow: hidden;
-}
 
-.img-container img {
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  border-radius: 0; /* Kenarları düz */
-}
-
-/* Hover geçiş efektleri */
-.hover-img {
-  opacity: 0;
-}
-.img-container:hover .hover-img {
-  opacity: 1;
-}
-.img-container:hover .main-img {
-  opacity: 0;
-}
-.img-container:hover img {
-  transform: scale(1.03);
-}
-
-/* Ürün Bilgileri */
 .product-info {
   padding: 10px;
   text-align: left;
 }
 
 .product-info h2 {
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 300;
   margin: 5px 0 3px;
@@ -199,13 +233,10 @@ main {
 }
 
 .product-info .price {
-  font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 300;
   color: #111;
   margin: 0;
-  text-decoration: none;
-  text-transform: none;
   line-height: 1.6;
 }
 
@@ -214,7 +245,7 @@ main {
   color: inherit;
 }
 
-/* FAVORİ İKONU YENİ YAPI */
+/* Favori İkonu */
 .info-top {
   display: flex;
   align-items: center;
@@ -265,12 +296,6 @@ footer {
   transform: translateY(0);
 }
 
-/* Blur efekti */
-.blurred {
-  filter: blur(4px);
-  transition: filter 0.3s ease;
-}
-
 /* Responsive */
 @media (max-width: 1024px) {
   .lookbook {
@@ -282,60 +307,4 @@ footer {
   .lookbook {
     grid-template-columns: 1fr;
   }
-}
-/* Slider Alanı */
-.slider-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 133%; /* 3:4 oranlı görsel */
-}
-
-/* Slider İçindeki Görseller */
-.slider {
-  position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: center; /* <<< EKLENECEK */
-align-items: center;      /* <<< EKLENECEK */  
-transition: transform 0.5s ease;
-  }
-
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  flex-shrink: 0;
-  aspect-ratio: 3 / 4;
-}
-
-/* Sağ ve Sol Scroll Butonları */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 6px 10px;
-  z-index: 10;
-  color: #333;
-  border-radius: 50%;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-.prev:hover, .next:hover {
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
 }
