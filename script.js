@@ -68,29 +68,26 @@ function toggleFavorite(icon) {
 // Sağ butona tıklanınca bir sonraki görsele geç
 function slideNext(button) {
   const slider = button.parentElement.querySelector('.slider');
-  const slides = slider.children;
-  let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+  const totalSlides = slider.children.length;
+  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
-  if (currentOffset < slides.length - 1) {
-    currentOffset++;
-    const nextSlide = slides[currentOffset];
-    slider.style.transform = `translateX(-${nextSlide.offsetLeft}px)`;
-    slider.setAttribute('data-offset', currentOffset);
+  if (currentOffset < totalSlides - 1) {
+    slider.style.transform = `translateX(-${(currentOffset + 1) * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset + 1);
   }
 }
+
 // Sol butona tıklanınca bir önceki görsele dön
 function slidePrev(button) {
   const slider = button.parentElement.querySelector('.slider');
-  const slides = slider.children;
-  let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
   if (currentOffset > 0) {
-    currentOffset--;
-    const prevSlide = slides[currentOffset];
-    slider.style.transform = `translateX(-${prevSlide.offsetLeft}px)`;
-    slider.setAttribute('data-offset', currentOffset);
+    slider.style.transform = `translateX(-${(currentOffset - 1) * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset - 1);
   }
 }
+
 // Sayfa yüklendiğinde slider'ların genişliğini ayarla
 document.addEventListener('DOMContentLoaded', function() {
   const sliders = document.querySelectorAll('.slider');
