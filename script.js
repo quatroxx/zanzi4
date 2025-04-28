@@ -65,3 +65,35 @@ function toggleFavorite(icon) {
   const heart = icon.querySelector('.heart');
   heart.classList.toggle('filled');
 }
+// Sağ butona tıklanınca bir sonraki görsele geç
+function slideNext(button) {
+  const slider = button.parentElement.querySelector('.slider');
+  const totalSlides = slider.children.length;
+  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+
+  if (currentOffset < totalSlides - 1) {
+    slider.style.transform = `translateX(-${(currentOffset + 1) * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset + 1);
+  }
+}
+
+// Sol butona tıklanınca bir önceki görsele dön
+function slidePrev(button) {
+  const slider = button.parentElement.querySelector('.slider');
+  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+
+  if (currentOffset > 0) {
+    slider.style.transform = `translateX(-${(currentOffset - 1) * 100}%)`;
+    slider.setAttribute('data-offset', currentOffset - 1);
+  }
+}
+
+// Sayfa yüklendiğinde slider'ların genişliğini ayarla
+document.addEventListener('DOMContentLoaded', function() {
+  const sliders = document.querySelectorAll('.slider');
+
+  sliders.forEach(function(slider) {
+    const slideCount = slider.children.length;
+    slider.style.width = `${slideCount * 100}%`;
+  });
+});
