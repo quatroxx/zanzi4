@@ -283,3 +283,52 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* Slider Alanı */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 133%; /* 3:4 oranlı görsel */
+}
+
+/* Slider İçindeki Görseller */
+.slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Sağ ve Sol Scroll Butonları */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 6px 10px;
+  z-index: 10;
+  color: #333;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
