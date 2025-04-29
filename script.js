@@ -99,3 +99,29 @@ window.addEventListener('pageshow', function(event) {
     document.body.classList.add('visible');
   }
 });
+// Mobil swipe (parmakla kaydırma) fonksiyonları
+document.querySelectorAll('.slider-container').forEach(container => {
+  let startX = 0;
+  let endX = 0;
+
+  container.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchmove', function (e) {
+    endX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchend', function () {
+    const distance = endX - startX;
+    if (distance > 50) {
+      // Sağa kaydırıldı — Önceki slayt
+      slidePrev(container.querySelector('.prev'));
+    } else if (distance < -50) {
+      // Sola kaydırıldı — Sonraki slayt
+      slideNext(container.querySelector('.next'));
+    }
+    startX = 0;
+    endX = 0;
+  });
+});
