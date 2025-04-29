@@ -97,7 +97,7 @@ function slidePrev(button) {
     updateDots(sliderContainer, currentOffset); // <<< eklenen satır
   }
 }
-
+ 
 // Sayfa Yeniden Yüklendiğinde (Back tuşuyla) Fade-in Efektini Koru
 window.addEventListener('pageshow', function(event) {
   if (event.persisted) {
