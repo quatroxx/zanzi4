@@ -1,14 +1,15 @@
 // Mobil Menü Aç/Kapa Fonksiyonu
 function toggleMenu() {
   var menu = document.getElementById("mobileMenu");
+  var overlay = document.getElementById("overlay");
   var body = document.querySelector('main');
   var hamburger = document.querySelector('.hamburger');
 
   menu.classList.toggle("show-menu");
+  overlay.classList.toggle("show"); // Overlay'ı da aç/kapat
   body.classList.toggle("blurred");
   hamburger.classList.toggle("active");
 }
-
 // Sayfada Fade-in için ve Mobile Menu'yu Dışarı Tıklayınca Kapatmak için
 document.addEventListener('click', function(event) {
   const menu = document.getElementById("mobileMenu");
