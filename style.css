@@ -315,20 +315,3 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 10px;
-}
-
-.dots .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #ccc; /* Pasif nokta rengi */
-}
-
-.dots .dot.active {
-  background-color: #111; /* Aktif olan nokta */
-}
