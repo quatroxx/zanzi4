@@ -99,3 +99,30 @@ window.addEventListener('pageshow', function(event) {
     document.body.classList.add('visible');
   }
 });
+// Swipe (Parmakla Kaydırma) Fonksiyonları
+document.querySelectorAll('.slider-container').forEach(container => {
+  let startX = 0;
+  let endX = 0;
+
+  container.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchmove', function(e) {
+    endX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchend', function(e) {
+    const distance = endX - startX;
+    if (distance > 50) {
+      // Sağa kaydırdıysa -> önceki slide
+      slidePrev(container.querySelector('.prev'));
+    } else if (distance < -50) {
+      // Sola kaydırdıysa -> sonraki slide
+      slideNext(container.querySelector('.next'));
+    }
+    // Başlangıç değerlerini sıfırla
+    startX = 0;
+    endX = 0;
+  });
+});
