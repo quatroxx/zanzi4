@@ -345,3 +345,28 @@ footer {
   opacity: 1;
   pointer-events: all;
 }
+<style>
+  .menu-links li a.highlight {
+    color: #E63946; /* Kırmızı - Yeni Gelenler */
+    font-weight: 600;
+  }
+  .menu-links li a {
+    font-size: 14px; /* Mango.com büyüklüğü */
+    line-height: 18px; /* Satır yüksekliği */
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 8px 20px; /* Sol boşluk */
+    transition: color 0.3s ease;
+    text-align: left; /* Sola hizalı */
+    letter-spacing: 0.2px; /* Profesyonel görünüm için hafif aralık */
+  }
+  .menu-links li a:hover {
+    color: #666; /* Hover efekt */
+  }
+  .menu-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 60px;
+  }
+</style>
