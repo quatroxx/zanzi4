@@ -163,3 +163,4 @@ function updateDots(sliderContainer) {
     }
   });
 }
+document.querySelectorAll('.dots').forEach(d => console.log(d.innerHTML));
