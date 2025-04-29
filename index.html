@@ -4,151 +4,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZANZI Lookbook</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; color: #111; }
+    header { display: flex; align-items: center; padding: 20px 40px; border-bottom: 1px solid #eee; }
+    .logo { font-size: 28px; font-weight: bold; }
+    .lookbook { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 40px; }
+    .product-card { border: 1px solid #eee; padding: 10px; }
+    .slider-container { position: relative; width: 100%; padding-top: 133%; overflow: hidden; }
+    .slider { position: absolute; top: 0; left: 0; height: 100%; display: flex; transition: transform 0.4s ease; }
+    .slide-item { flex: 0 0 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+    .slide-item img { width: 100%; height: 100%; object-fit: cover; }
+    .prev, .next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: none; border: none; font-size: 28px; cursor: pointer; color: #333; opacity: 0.5;
+    }
+    .prev:hover, .next:hover { opacity: 1; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+    .dots { display: flex; justify-content: center; margin-top: 10px; gap: 6px; }
+    .dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; }
+    .dot.active { background: #111; }
+    .product-info { margin-top: 10px; }
+    .product-info h2 { margin: 5px 0; font-size: 16px; }
+    .price { color: #666; font-size: 14px; }
+  </style>
 </head>
-<body class="page-transition">
-
-<header>
-  <div class="header-left">
-    <div class="hamburger" onclick="toggleMenu()">
-      <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect class="line1" y="0" width="28" height="2" fill="black"/>
-        <rect class="line2" y="8" width="28" height="2" fill="black"/>
-        <rect class="line3" y="16" width="28" height="2" fill="black"/>
-      </svg>
-    </div>
-    <div class="logo">ZANZI</div>
-  </div>
-</header>
-
-<nav id="mobileMenu" class="mobile-menu">
-  <div class="close-btn" onclick="toggleMenu()">
-    <svg viewBox="0 0 24 24" width="36" height="36">
-      <line x1="4" y1="4" x2="20" y2="20" stroke="black" stroke-width="2"/>
-      <line x1="20" y1="4" x2="4" y2="20" stroke="black" stroke-width="2"/>
-    </svg>
-  </div>
-  <ul>
-    <li><a href="#">Lookbook</a></li>
-    <li><a href="#">Runway</a></li>
-    <li><a href="#">Stories</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
+<body>
+<header><div class="logo">ZANZI</div></header>
 
 <main>
   <section class="hero">
     <div class="overlay">
-      <h1>Spring/Summer 2025</h1>
-      <p>Minimal shapes. Modern silhouettes.</p>
+      <h1 style="text-align:center; padding: 40px 0 10px;">Spring/Summer 2025</h1>
+      <p style="text-align:center; margin: 0;">Minimal shapes. Modern silhouettes.</p>
     </div>
   </section>
-<section class="lookbook">
 
-    <div class="product-card fade-in">
+  <section class="lookbook">
+
+    <div class="product-card">
       <div class="slider-container">
         <div class="slider" data-offset="0">
-          <div class="slide-item"><img src="images/beyaz1.jpg" alt="Beyaz Elbise" loading="lazy"></div>
-          <div class="slide-item"><img src="images/beyaz2.jpg" alt="Beyaz Elbise" loading="lazy"></div>
+          <div class="slide-item"><img src="images/beyaz1.jpg" alt="Beyaz Elbise"></div>
+          <div class="slide-item"><img src="images/beyaz2.jpg" alt="Beyaz Elbise"></div>
         </div>
         <button class="prev" onclick="slidePrev(this)">‹</button>
         <button class="next" onclick="slideNext(this)">›</button>
         <div class="dots"></div>
       </div>
       <div class="product-info">
-        <div class="info-top">
-          <a href="beyaz.html"><h2>Beyaz Elbise</h2></a>
-          <div class="favorite-icon" onclick="toggleFavorite(this)">
-            <svg viewBox="0 0 24 24" class="heart" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-              2 6.5 3.5 5 5.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99
-              14.96 5 16.5 5 18.5 5 20 6.5 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-              fill="none" stroke="#333" stroke-width="2"/>
-            </svg>
-          </div>
-        </div>
+        <h2>Beyaz Elbise</h2>
         <p class="price">₺1299</p>
       </div>
     </div>
 
-    <div class="product-card fade-in">
+    <div class="product-card">
       <div class="slider-container">
         <div class="slider" data-offset="0">
-          <div class="slide-item"><img src="images/bitter1.jpg" alt="Bitter Tulum" loading="lazy"></div>
+          <div class="slide-item"><img src="images/bitter1.jpg" alt="Bitter Tulum"></div>
         </div>
         <button class="prev" onclick="slidePrev(this)">‹</button>
         <button class="next" onclick="slideNext(this)">›</button>
         <div class="dots"></div>
       </div>
       <div class="product-info">
-        <div class="info-top">
-          <a href="bitter.html"><h2>Bitter Tulum</h2></a>
-          <div class="favorite-icon" onclick="toggleFavorite(this)">
-            <svg viewBox="0 0 24 24" class="heart" xmlns="http://www.w3.org/2000/svg">
-              ...
+        <h2>Bitter Tulum</h2>
+        <p class="price">₺1199</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="slider-container">
+        <div class="slider" data-offset="0">
+          <div class="slide-item"><img src="images/ceket1.jpg" alt="Ceket Takımı"></div>
+          <div class="slide-item"><img src="images/ceket2.jpg" alt="Ceket Takımı"></div>
+        </div>
+        <button class="prev" onclick="slidePrev(this)">‹</button>
+        <button class="next" onclick="slideNext(this)">›</button>
+        <div class="dots"></div>
+      </div>
+      <div class="product-info">
+        <h2>Ceket Takımı</h2>
         <p class="price">₺1799</p>
       </div>
     </div>
-    
-    <div class="product-card fade-in">
-      <div class="slider-container">
-        <div class="slider" data-offset="0">
-          <div class="slide-item"><img src="images/cicek1.jpg" alt="Çiçek Desenli Elbise" loading="lazy"></div>
-          <div class="slide-item"><img src="images/cicek2.jpg" alt="Çiçek Desenli Elbise" loading="lazy"></div>
-        </div>
-        <button class="prev" onclick="slidePrev(this)">‹</button>
-        <button class="next" onclick="slideNext(this)">›</button>
-        <div class="dots"></div>
-      </div>
-      <div class="product-info">
-        <div class="info-top">
-          <a href="cicek.html"><h2>Çiçek Desenli Elbise</h2></a>
-          <div class="favorite-icon" onclick="toggleFavorite(this)">
-            <svg viewBox="0 0 24 24" class="heart">
-              <path d="..."/>
-            </svg>
-          </div>
-        </div>
-        <p class="price">₺1399</p>
-      </div>
-    </div>
 
-    <div class="product-card fade-in">
-      <div class="slider-container">
-        <div class="slider" data-offset="0">
-          <div class="slide-item"><img src="images/kahve1.jpg" alt="Kahverengi Pantolon" loading="lazy"></div>
-        </div>
-        <button class="prev" onclick="slidePrev(this)">‹</button>
-        <button class="next" onclick="slideNext(this)">›</button>
-        <div class="dots"></div>
-      </div>
-      <div class="product-info">
-        <div class="info-top">
-          <a href="kahve.html"><h2>Kahverengi Pantolon</h2></a>
-          <div class="favorite-icon" onclick="toggleFavorite(this)">
-            <svg viewBox="0 0 24 24" class="heart">
-              <path d="..."/>
-            </svg>
-          </div>
-        </div>
-        <p class="price">₺899</p>
-      </div>
-    </div>
-
-</section>
-
-<section class="about">
-  <h2>About ZANZI</h2>
-  <p>ZANZI Lookbook SS25 – a curated edit of silhouettes designed to move with presence.</p>
-</section>
+  </section>
 </main>
 
-<footer>
-  <p>© 2025 ZANZI — Instagram | Contact</p>
-</footer>
-
-<script src="script.js"></script>
+<script>
+function slideNext(btn) {
+  const slider = btn.parentElement.querySelector('.slider');
+  const total = slider.children.length;
+  let offset = parseInt(slider.getAttribute('data-offset') || 0);
+  if (offset < total - 1) offset++;
+  slider.style.transform = 'translateX(-' + (offset * 100) + '%)';
+  slider.setAttribute('data-offset', offset);
+  updateDots(btn.parentElement, offset);
+}
+function slidePrev(btn) {
+  const slider = btn.parentElement.querySelector('.slider');
+  let offset = parseInt(slider.getAttribute('data-offset') || 0);
+  if (offset > 0) offset--;
+  slider.style.transform = 'translateX(-' + (offset * 100) + '%)';
+  slider.setAttribute('data-offset', offset);
+  updateDots(btn.parentElement, offset);
+}
+function updateDots(container, active) {
+  const dots = container.querySelectorAll('.dot');
+  dots.forEach((d, i) => d.classList.toggle('active', i === active));
+}
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.slider-container').forEach(container => {
+    const slider = container.querySelector('.slider');
+    const dots = container.querySelector('.dots');
+    const total = slider.children.length;
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dots.appendChild(dot);
+    }
+  });
+});
+</script>
 
 </body>
 </html>
