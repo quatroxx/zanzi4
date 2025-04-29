@@ -1,15 +1,15 @@
-// Mobil Menü Aç/Kapa Fonksiyonu
+// Mobil Menü Aç/Kapa
 function toggleMenu() {
-  var menu = document.getElementById("mobileMenu");
-  var body = document.querySelector('main');
-  var hamburger = document.querySelector('.hamburger');
+  const menu = document.getElementById("mobileMenu");
+  const body = document.querySelector('main');
+  const hamburger = document.querySelector('.hamburger');
 
   menu.classList.toggle("show-menu");
   body.classList.toggle("blurred");
   hamburger.classList.toggle("active");
 }
 
-// Mobile Menu'yu Dışarı Tıklayınca Kapat
+// Mobile Menü Dış Tıklama ile Kapat
 document.addEventListener('click', function(event) {
   const menu = document.getElementById("mobileMenu");
   const toggle = document.querySelector(".hamburger");
@@ -29,14 +29,13 @@ document.addEventListener('click', function(event) {
 });
 
 // Sayfa Yüklenince Fade-in ve Dotları Oluştur
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   document.body.classList.add('visible');
 
   const fadeElems = document.querySelectorAll('.fade-in');
-
   function checkFadeIn() {
-    var triggerBottom = window.innerHeight * 0.9;
-    fadeElems.forEach(function(elem) {
+    const triggerBottom = window.innerHeight * 0.9;
+    fadeElems.forEach(function (elem) {
       const box = elem.getBoundingClientRect();
       if (box.top < triggerBottom) {
         elem.classList.add('visible');
@@ -47,40 +46,41 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', checkFadeIn);
   checkFadeIn();
 
-  // Tüm slider-container'lar için dotları oluştur
+  // Dotları oluştur
   document.querySelectorAll('.slider-container').forEach(sliderContainer => {
+    console.log("Slider bulundu:", sliderContainer); // debug
     createDots(sliderContainer);
   });
 });
 
-// Sayfa Yeniden Yüklendiğinde (Back tuşuyla) Fade-in Efektini Koru
-window.addEventListener('pageshow', function(event) {
+// Sayfa geri gelince yeniden fade-in uygula
+window.addEventListener('pageshow', function (event) {
   if (event.persisted) {
     document.body.classList.add('visible');
   }
 });
 
-// Linklere Tıklayınca Sayfa Fade-out ile Gitmesi
+// Linke tıklayınca fade-out
 document.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', function(e) {
+  link.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
-    if (href && !href.startsWith("#") && !href.startsWith('javascript')) {
+    if (href && !href.startsWith("#") && !href.startsWith("javascript")) {
       e.preventDefault();
       document.body.classList.remove('visible');
       setTimeout(() => {
         window.location.href = href;
-      }, 500); // Fade-out süresi
+      }, 500);
     }
   });
 });
 
-// Favori (Kalp) İkonu Toggle
+// Favori kalp toggle
 function toggleFavorite(icon) {
   const heart = icon.querySelector('.heart');
   heart.classList.toggle('filled');
 }
 
-// Sağ Butona Basınca İleri Kaydırma
+// Slider ileri
 function slideNext(button) {
   const sliderContainer = button.parentElement;
   const slider = sliderContainer.querySelector('.slider');
@@ -95,7 +95,7 @@ function slideNext(button) {
   }
 }
 
-// Sol Butona Basınca Geri Kaydırma
+// Slider geri
 function slidePrev(button) {
   const sliderContainer = button.parentElement;
   const slider = sliderContainer.querySelector('.slider');
@@ -109,20 +109,20 @@ function slidePrev(button) {
   }
 }
 
-// Swipe (Parmakla Kaydırma) Fonksiyonları
+// Swipe (mobil parmakla kaydırma)
 document.querySelectorAll('.slider-container').forEach(container => {
   let startX = 0;
   let endX = 0;
 
-  container.addEventListener('touchstart', function(e) {
+  container.addEventListener('touchstart', function (e) {
     startX = e.touches[0].clientX;
   });
 
-  container.addEventListener('touchmove', function(e) {
+  container.addEventListener('touchmove', function (e) {
     endX = e.touches[0].clientX;
   });
 
-  container.addEventListener('touchend', function(e) {
+  container.addEventListener('touchend', function () {
     const distance = endX - startX;
     if (distance > 50) {
       slidePrev(container.querySelector('.prev'));
@@ -134,10 +134,16 @@ document.querySelectorAll('.slider-container').forEach(container => {
   });
 });
 
-// DOTLARI OLUŞTUR
+// Dotları oluştur
 function createDots(sliderContainer) {
   const slider = sliderContainer.querySelector('.slider');
   const dotsContainer = sliderContainer.querySelector('.dots');
+
+  if (!slider || !dotsContainer) {
+    console.warn("Dot container bulunamadı:", sliderContainer);
+    return;
+  }
+
   const slideCount = slider.children.length;
   dotsContainer.innerHTML = '';
 
@@ -147,9 +153,11 @@ function createDots(sliderContainer) {
     if (i === 0) dot.classList.add('active');
     dotsContainer.appendChild(dot);
   }
+
+  console.log("Dotlar oluşturuldu:", dotsContainer.innerHTML);
 }
 
-// AKTİF DOTU GÜNCELLE
+// Aktif dotu güncelle
 function updateDots(sliderContainer) {
   const slider = sliderContainer.querySelector('.slider');
   const dots = sliderContainer.querySelectorAll('.dot');
@@ -163,4 +171,3 @@ function updateDots(sliderContainer) {
     }
   });
 }
-document.querySelectorAll('.dots').forEach(d => console.log(d.innerHTML));
