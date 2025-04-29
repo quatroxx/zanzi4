@@ -70,7 +70,8 @@ function toggleFavorite(icon) {
 
 // Sağ Butona Basınca İleri Kaydırma
 function slideNext(button) {
-  const slider = button.parentElement.querySelector('.slider');
+  const sliderContainer = button.parentElement;
+  const slider = sliderContainer.querySelector('.slider');
   const totalSlides = slider.children.length;
   let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
@@ -78,18 +79,22 @@ function slideNext(button) {
     currentOffset++;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
+    updateDots(sliderContainer, currentOffset); // <<< eklenen satır
   }
 }
 
+
 // Sol Butona Basınca Geri Kaydırma
 function slidePrev(button) {
-  const slider = button.parentElement.querySelector('.slider');
+  const sliderContainer = button.parentElement;
+  const slider = sliderContainer.querySelector('.slider');
   let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
   if (currentOffset > 0) {
     currentOffset--;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
+    updateDots(sliderContainer, currentOffset); // <<< eklenen satır
   }
 }
 
@@ -125,3 +130,13 @@ document.querySelectorAll('.slider-container').forEach(container => {
     endX = 0;
   });
 });
+function updateDots(container, activeIndex) {
+  const dots = container.querySelectorAll('.dot');
+  dots.forEach((dot, index) => {
+    if (index === activeIndex) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
