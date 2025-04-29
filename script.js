@@ -126,3 +126,32 @@ document.querySelectorAll('.slider-container').forEach(container => {
     endX = 0;
   });
 });
+// DOTLARI OLUŞTUR
+function createDots(sliderContainer) {
+  const slider = sliderContainer.querySelector('.slider');
+  const dotsContainer = sliderContainer.querySelector('.dots');
+  const slideCount = slider.children.length;
+  dotsContainer.innerHTML = '';
+
+  for (let i = 0; i < slideCount; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+  }
+}
+
+// AKTİF DOTU GÜNCELLE
+function updateDots(sliderContainer) {
+  const slider = sliderContainer.querySelector('.slider');
+  const dots = sliderContainer.querySelectorAll('.dot');
+  const currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
+
+  dots.forEach((dot, index) => {
+    if (index === currentOffset) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
