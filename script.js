@@ -32,17 +32,19 @@ document.addEventListener('click', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.add('visible');
 
-  var fadeElems = document.querySelectorAll('.fade-in');
+  const fadeElems = document.querySelectorAll('.fade-in');
+  fadeElems.forEach(function(elem) {
+    const box = elem.getBoundingClientRect();
+    if (box.top < window.innerHeight * 0.9) {
+      elem.classList.add('visible');
+    }
+  });
 
-  function checkFadeIn() {
-    var triggerBottom = window.innerHeight * 0.9;
-    fadeElems.forEach(function(elem) {
-      const box = elem.getBoundingClientRect();
-      if (box.top < triggerBottom) {
-        elem.classList.add('visible');
-      }
-    });
-  }
+  // Tüm slider-container'lar için dotları oluştur
+  document.querySelectorAll('.slider-container').forEach(sliderContainer => {
+    createDots(sliderContainer);
+  });
+});
 
   window.addEventListener('scroll', checkFadeIn);
   checkFadeIn();
@@ -70,7 +72,8 @@ function toggleFavorite(icon) {
 
 // Sağ Butona Basınca İleri Kaydırma
 function slideNext(button) {
-  const slider = button.parentElement.querySelector('.slider');
+  const sliderContainer = button.parentElement;
+  const slider = sliderContainer.querySelector('.slider');
   const totalSlides = slider.children.length;
   let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
@@ -78,21 +81,24 @@ function slideNext(button) {
     currentOffset++;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
+    updateDots(sliderContainer); // DOTU GÜNCELLE
   }
 }
 
+
 // Sol Butona Basınca Geri Kaydırma
 function slidePrev(button) {
-  const slider = button.parentElement.querySelector('.slider');
+  const sliderContainer = button.parentElement;
+  const slider = sliderContainer.querySelector('.slider');
   let currentOffset = parseInt(slider.getAttribute('data-offset') || 0);
 
   if (currentOffset > 0) {
     currentOffset--;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
+    updateDots(sliderContainer); // DOTU GÜNCELLE
   }
 }
-
 // Sayfa Yeniden Yüklendiğinde (Back tuşuyla) Fade-in Efektini Koru
 window.addEventListener('pageshow', function(event) {
   if (event.persisted) {
