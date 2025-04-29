@@ -1,5 +1,5 @@
 /* Genel */
-.body {
+body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
@@ -20,7 +20,7 @@ h1, h2 {
 }
 
 /* Header */
-.header {
+header {
   position: fixed;
   top: 0;
   width: 100%;
