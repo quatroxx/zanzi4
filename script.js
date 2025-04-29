@@ -28,7 +28,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Sayfa Yüklenince Fade-in Efekti
+// Sayfa Yüklenince Fade-in ve Lazy Load Aktifleştir
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.add('visible');
 
@@ -46,9 +46,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('scroll', checkFadeIn);
   checkFadeIn();
+
+  // Lazy-load başlat
+  const lazyImages = document.querySelectorAll('img.lazy-load');
+
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.getAttribute('data-src');
+          img.removeAttribute('data-src');
+          img.classList.remove('lazy-load');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+
+    lazyImages.forEach(function(img) {
+      imageObserver.observe(img);
+    });
+  } else {
+    // Desteklemeyen tarayıcılar için fallback
+    lazyImages.forEach(function(img) {
+      img.src = img.getAttribute('data-src');
+      img.removeAttribute('data-src');
+      img.classList.remove('lazy-load');
+    });
+  }
 });
 
-// Linklere Tıklanınca Sayfa Fade-out ile Gitmesi
+// Linklere Tıklayınca Sayfa Fade-out ile Gitmesi
 document.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
@@ -57,7 +85,7 @@ document.querySelectorAll('a').forEach(link => {
       document.body.classList.remove('visible');
       setTimeout(() => {
         window.location.href = href;
-      }, 500); // Fade-out süresi
+      }, 500);
     }
   });
 });
@@ -79,10 +107,9 @@ function slideNext(button) {
     currentOffset++;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
-    updateDots(sliderContainer, currentOffset); // <<< eklenen satır
+    updateDots(sliderContainer, currentOffset);
   }
 }
-
 
 // Sol Butona Basınca Geri Kaydırma
 function slidePrev(button) {
@@ -94,16 +121,29 @@ function slidePrev(button) {
     currentOffset--;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
-    updateDots(sliderContainer, currentOffset); // <<< eklenen satır
+    updateDots(sliderContainer, currentOffset);
   }
 }
- 
+
+// Dotları Güncelle
+function updateDots(container, activeIndex) {
+  const dots = container.querySelectorAll('.dot');
+  dots.forEach((dot, index) => {
+    if (index === activeIndex) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
+
 // Sayfa Yeniden Yüklendiğinde (Back tuşuyla) Fade-in Efektini Koru
 window.addEventListener('pageshow', function(event) {
   if (event.persisted) {
     document.body.classList.add('visible');
   }
 });
+
 // Mobil swipe (parmakla kaydırma) fonksiyonları
 document.querySelectorAll('.slider-container').forEach(container => {
   let startX = 0;
@@ -120,23 +160,11 @@ document.querySelectorAll('.slider-container').forEach(container => {
   container.addEventListener('touchend', function () {
     const distance = endX - startX;
     if (distance > 50) {
-      // Sağa kaydırıldı — Önceki slayt
       slidePrev(container.querySelector('.prev'));
     } else if (distance < -50) {
-      // Sola kaydırıldı — Sonraki slayt
       slideNext(container.querySelector('.next'));
     }
     startX = 0;
     endX = 0;
   });
 });
-function updateDots(container, activeIndex) {
-  const dots = container.querySelectorAll('.dot');
-  dots.forEach((dot, index) => {
-    if (index === activeIndex) {
-      dot.classList.add('active');
-    } else {
-      dot.classList.remove('active');
-    }
-  });
-}
