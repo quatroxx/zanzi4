@@ -9,7 +9,7 @@ function toggleMenu() {
   hamburger.classList.toggle("active");
 }
 
-// Sayfada Fade-in için ve Mobile Menu'yu Dışarı Tıklayınca Kapatmak için
+// Mobile Menu'yu Dışarı Tıklayınca Kapat
 document.addEventListener('click', function(event) {
   const menu = document.getElementById("mobileMenu");
   const toggle = document.querySelector(".hamburger");
@@ -28,17 +28,24 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Sayfa Yüklenince Fade-in Efekti
+// Sayfa Yüklenince Fade-in ve Dotları Oluştur
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.add('visible');
 
   const fadeElems = document.querySelectorAll('.fade-in');
-  fadeElems.forEach(function(elem) {
-    const box = elem.getBoundingClientRect();
-    if (box.top < window.innerHeight * 0.9) {
-      elem.classList.add('visible');
-    }
-  });
+
+  function checkFadeIn() {
+    var triggerBottom = window.innerHeight * 0.9;
+    fadeElems.forEach(function(elem) {
+      const box = elem.getBoundingClientRect();
+      if (box.top < triggerBottom) {
+        elem.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkFadeIn);
+  checkFadeIn();
 
   // Tüm slider-container'lar için dotları oluştur
   document.querySelectorAll('.slider-container').forEach(sliderContainer => {
@@ -46,11 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-  window.addEventListener('scroll', checkFadeIn);
-  checkFadeIn();
+// Sayfa Yeniden Yüklendiğinde (Back tuşuyla) Fade-in Efektini Koru
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    document.body.classList.add('visible');
+  }
 });
 
-// Linklere Tıklanınca Sayfa Fade-out ile Gitmesi
+// Linklere Tıklayınca Sayfa Fade-out ile Gitmesi
 document.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
@@ -81,10 +91,9 @@ function slideNext(button) {
     currentOffset++;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
-    updateDots(sliderContainer); // DOTU GÜNCELLE
+    updateDots(sliderContainer);
   }
 }
-
 
 // Sol Butona Basınca Geri Kaydırma
 function slidePrev(button) {
@@ -96,15 +105,10 @@ function slidePrev(button) {
     currentOffset--;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
-    updateDots(sliderContainer); // DOTU GÜNCELLE
+    updateDots(sliderContainer);
   }
 }
-// Sayfa Yeniden Yüklendiğinde (Back tuşuyla) Fade-in Efektini Koru
-window.addEventListener('pageshow', function(event) {
-  if (event.persisted) {
-    document.body.classList.add('visible');
-  }
-});
+
 // Swipe (Parmakla Kaydırma) Fonksiyonları
 document.querySelectorAll('.slider-container').forEach(container => {
   let startX = 0;
@@ -121,17 +125,15 @@ document.querySelectorAll('.slider-container').forEach(container => {
   container.addEventListener('touchend', function(e) {
     const distance = endX - startX;
     if (distance > 50) {
-      // Sağa kaydırdıysa -> önceki slide
       slidePrev(container.querySelector('.prev'));
     } else if (distance < -50) {
-      // Sola kaydırdıysa -> sonraki slide
       slideNext(container.querySelector('.next'));
     }
-    // Başlangıç değerlerini sıfırla
     startX = 0;
     endX = 0;
   });
 });
+
 // DOTLARI OLUŞTUR
 function createDots(sliderContainer) {
   const slider = sliderContainer.querySelector('.slider');
