@@ -29,13 +29,43 @@
       <line x1="20" y1="4" x2="4" y2="20" stroke="black" stroke-width="2"/>
     </svg>
   </div>
-  <ul>
-    <li><a href="#">Lookbook</a></li>
-    <li><a href="#">Runway</a></li>
-    <li><a href="#">Stories</a></li>
-    <li><a href="#">Contact</a></li>
+
+  <style>
+    .menu-links li a.highlight {
+      color: #E63946; /* Kırmızı renk */
+      font-weight: 600; /* Hafif kalın */
+    }
+    .menu-links li a {
+      font-size: 18px;
+      text-decoration: none;
+      color: black;
+      display: block;
+      padding: 10px 0;
+      transition: color 0.3s ease;
+    }
+    .menu-links li a:hover {
+      color: #666; /* Hover'da hafif gri */
+    }
+    .menu-links {
+      list-style: none;
+      padding: 0;
+      margin-top: 60px; /* Menüden biraz boşluk */
+      text-align: center;
+    }
+  </style>
+
+  <ul class="menu-links">
+    <li><a href="/yeni-gelenler" class="highlight">Yeni Gelenler</a></li>
+    <li><a href="/kategori/elbise">Elbise</a></li>
+    <li><a href="/kategori/pantolon">Pantolon</a></li>
+    <li><a href="/kategori/gomlek-ve-bluzlar">Gömlek ve Bluzlar</a></li>
+    <li><a href="/kategori/takim-ve-kombinler">Takım ve Kombinler</a></li>
+    <li><a href="/kategori/ceket">Ceket</a></li>
+    <li><a href="/kategori/etek">Etek</a></li>
+    <li><a href="/kategori/tulum">Tulum</a></li>
   </ul>
 </nav>
+
 
 <main>
   <section class="hero">
