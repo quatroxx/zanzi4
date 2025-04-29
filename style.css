@@ -131,8 +131,12 @@ header {
 /* Main */
 main {
   padding-top: 100px;
+  padding-bottom: 100px; /* <<< footer'ın üstüne boşluk bırakıyoruz */
+  min-height: calc(100vh - 160px); /* <<< sayfanın tamamını kapsasın (header + footer yükseklik hesaplı) */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
-
 /* Hero */
 .hero {
   padding: 60px;
@@ -141,6 +145,7 @@ main {
 
 /* Lookbook */
 .lookbook {
+  flex: 1 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1px;
