@@ -520,6 +520,16 @@ footer {
 .login-link:hover {
   color: #E63946;
 }
+@font-face {
+  font-family: 'Northwood High';
+  src: url('fonts/northwood-high.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.logo {
+  font-family: 'Northwood High', serif;
+}
 
 
 
