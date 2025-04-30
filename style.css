@@ -426,3 +426,21 @@ footer {
   opacity: 1;
   pointer-events: auto;
 }
+.auth-links {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.auth-links a {
+  text-decoration: none;
+  color: #111;
+  margin: 0 5px;
+  font-weight: 500;
+}
+
+.auth-links a:hover {
+  color: #E63946;
+}
