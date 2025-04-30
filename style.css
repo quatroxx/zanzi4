@@ -136,12 +136,6 @@ main {
 .hero {
   padding: 60px;
   text-align: center;
-  background-color: #f8f8f8; /* açık gri zemin */
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: black; /* metin rengi siyah */
 }
 
 /* Lookbook */
@@ -346,6 +340,7 @@ footer {
   opacity: 1;
   pointer-events: all;
 }
+<style>
   .menu-links li a.highlight {
     color: #E63946; /* Kırmızı - Yeni Gelenler */
     font-weight: 600;
@@ -369,7 +364,7 @@ footer {
     padding: 0;
     margin-top: 60px;
   }
-
+</style>
 /* -------------------
    Sliding Menu Temel Stil
 -------------------- */
@@ -420,26 +415,4 @@ footer {
 #overlay.show {
   opacity: 1;
   pointer-events: all;
-}
-.hero {
-  background-color: #f8f8f8;  /* Açık gri zemin */
-  height: 180px;              /* Daha kısa bir alan */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-overlay {
-  color: black;
-}
-
-.hero-overlay h1 {
-  font-size: 28px;
-  margin: 0;
-}
-
-.hero-overlay p {
-  font-size: 16px;
-  margin: 0;
 }
