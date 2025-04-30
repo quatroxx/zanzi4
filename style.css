@@ -27,7 +27,7 @@ header {
   background: #fff;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between; /* ← Sola logo, sağa "Giriş Yap" */
   padding: 20px 40px;
   border-bottom: 1px solid #eee;
   z-index: 999;
@@ -37,6 +37,11 @@ header {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -504,10 +509,7 @@ footer {
 .hidden {
   display: none;
 }
-.login-link {
-  position: absolute;
-  top: 20px;
-  right: 40px;
+login-link {
   font-size: 14px;
   text-decoration: none;
   color: #111;
