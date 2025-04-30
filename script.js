@@ -63,11 +63,6 @@ document.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Favori (Kalp) İkonu Toggle
-function toggleFavorite(icon) {
-  const heart = icon.querySelector('.heart');
-  heart.classList.toggle('filled');
-}
 
 // Sağ Butona Basınca İleri Kaydırma
 function slideNext(button) {
@@ -140,4 +135,24 @@ function updateDots(container, activeIndex) {
       dot.classList.remove('active');
     }
   });
+}
+function toggleFavorite(icon) {
+  icon.classList.toggle("active");
+
+  // (İsteğe bağlı) Favorileri saklamak için localStorage:
+  const productTitle = icon.closest(".product-card").querySelector("h2").innerText;
+  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+  if (icon.classList.contains("active")) {
+    if (!favorites.includes(productTitle)) {
+      favorites.push(productTitle);
+    }
+  } else {
+    const index = favorites.indexOf(productTitle);
+    if (index > -1) {
+      favorites.splice(index, 1);
+    }
+  }
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
 }
