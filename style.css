@@ -47,10 +47,6 @@ header {
 
 /* Hamburger Menu */
 .hamburger {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  z-index: 10;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -120,11 +116,12 @@ header {
 }
 
 .close-btn {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  z-index: 10;
+  display: inline-block;
   cursor: pointer;
+  text-align: right;
+  margin-bottom: 40px;
+  padding-right: 10px;
+  transition: transform 0.3s ease;
 }
 
 .close-btn:hover {
