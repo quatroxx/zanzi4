@@ -516,7 +516,7 @@ footer {
   color: #111;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
-  margin-right: 10px; /* sağdan boşluk */
+  margin-right: 50px; /* sağdan boşluk */
 }
 
 .login-link:hover {
