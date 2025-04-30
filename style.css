@@ -29,7 +29,7 @@ header {
   align-items: center;
   justify-content: space-between; /* ← Sola logo, sağa "Giriş Yap" */
   padding-left: 40px;
-  padding-right: 20px;
+  padding-right: 40px;
   border-bottom: 1px solid #eee;
   z-index: 999;
 }
