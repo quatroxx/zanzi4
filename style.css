@@ -134,10 +134,10 @@ main {
 
 /* Hero */
 .hero {
-  padding: 0px;
+  padding: 60px;
   text-align: center;
   background-color: #f8f8f8; /* açık gri zemin */
-  height: 150px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
