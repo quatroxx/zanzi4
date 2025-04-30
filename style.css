@@ -370,3 +370,54 @@ footer {
     margin-top: 60px;
   }
 </style>
+/* -------------------
+   Sliding Menu Temel Stil
+-------------------- */
+#mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: white;
+  z-index: 999;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  padding-top: 80px;
+  width: 100%; /* Mobil için tam ekran */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Menü Açıldığında */
+#mobileMenu.show-menu {
+  transform: translateX(0);
+}
+
+/* -------------------
+   Masaüstü Ekranlar için Menü Genişliğini Daralt
+-------------------- */
+@media (min-width: 768px) {
+  #mobileMenu {
+    width: 400px; /* Masaüstünde sabit sol panel */
+  }
+}
+
+/* -------------------
+   Overlay (karartma katmanı)
+-------------------- */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
