@@ -352,7 +352,7 @@ footer {
   }
   .menu-links li a {
     font-size: 14px; /* Mango.com büyüklüğü */
-    line-height: 10px; /* Satır yüksekliği */
+    line-height: 18px; /* Satır yüksekliği */
     text-decoration: none;
     color: black;
     display: block;
