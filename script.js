@@ -156,3 +156,34 @@ function toggleFavorite(icon) {
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
+function openLoginModal() {
+  document.getElementById("auth-title").innerText = "Giriş Yap";
+  document.getElementById("toggle-auth").innerText = "Henüz üye değil misiniz? Kayıt Ol";
+  document.getElementById("auth-modal").classList.remove("hidden");
+}
+
+function openRegisterModal() {
+  document.getElementById("auth-title").innerText = "Kayıt Ol";
+  document.getElementById("toggle-auth").innerText = "Zaten üyeniz misiniz? Giriş Yap";
+  document.getElementById("auth-modal").classList.remove("hidden");
+}
+
+function closeAuthModal() {
+  document.getElementById("auth-modal").classList.add("hidden");
+}
+
+function toggleAuthMode() {
+  const title = document.getElementById("auth-title");
+  const toggle = document.getElementById("toggle-auth");
+  if (title.innerText === "Giriş Yap") {
+    title.innerText = "Kayıt Ol";
+    toggle.innerText = "Zaten üyeniz misiniz? Giriş Yap";
+  } else {
+    title.innerText = "Giriş Yap";
+    toggle.innerText = "Henüz üye değil misiniz? Kayıt Ol";
+  }
+}
+
+function submitAuth() {
+  alert("Henüz arka uç (backend) hazır değil 🙃");
+}
