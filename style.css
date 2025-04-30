@@ -152,7 +152,7 @@ main {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 150%; /* 3:4 oran */
+  padding-top: 140%; /* 3:4 oran */
 }
 
 .slider {
