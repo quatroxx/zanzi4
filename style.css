@@ -422,3 +422,25 @@ footer {
   opacity: 1;
   pointer-events: all;
 }
+.hero {
+  background-color: #f8f8f8;  /* Açık gri zemin */
+  height: 180px;              /* Daha kısa bir alan */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  color: black;
+}
+
+.hero-overlay h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.hero-overlay p {
+  font-size: 16px;
+  margin: 0;
+}
