@@ -416,3 +416,8 @@ footer {
   opacity: 1;
   pointer-events: all;
 }
+.hero-overlay {
+  color: black;
+  opacity: 1;
+  pointer-events: auto;
+}
