@@ -504,3 +504,23 @@ footer {
 .hidden {
   display: none;
 }
+.login-link {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-link:hover {
+  color: #E63946;
+}
+
+
+
+
+
+
