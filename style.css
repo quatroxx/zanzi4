@@ -25,17 +25,13 @@ header {
   top: 0;
   width: 100%;
   background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ← Sola logo, sağa "Giriş Yap" */
+  padding-left: 40px;
+  padding-right: 40px;
   border-bottom: 1px solid #eee;
   z-index: 999;
-}
-
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .header-left {
@@ -48,7 +44,6 @@ header {
   display: flex;
   align-items: center;
 }
-
 
 .logo {
   font-size: 28px;
@@ -521,12 +516,12 @@ footer {
   color: #111;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
+  margin-right: 50px; /* sağdan boşluk */
 }
 
 .login-link:hover {
   color: #E63946;
 }
-
 
 
 
