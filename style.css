@@ -258,23 +258,19 @@ main {
   justify-content: space-between;
 }
 
-.favorite-icon {
+.favorite-icon .heart {
   width: 24px;
   height: 24px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.heart {
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease;
+.favorite-icon.active .heart path {
+  fill: #E63946;
+  stroke: #E63946;
 }
 
-.heart.filled {
-  fill: red;
-  stroke: red;
-}
+
 
 /* About */
 .about {
