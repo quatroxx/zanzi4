@@ -117,7 +117,7 @@ header {
 
 .close-btn {
   position: absolute;
-  top: 24px;
+  top: 20px;
   right: 20px; /* ← SOL DEĞİL, SAĞA YASLADIK */
   z-index: 1000;
   cursor: pointer;
