@@ -444,3 +444,63 @@ footer {
 .auth-links a:hover {
   color: #E63946;
 }
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.auth-box {
+  background: white;
+  padding: 40px;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.auth-box button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.auth-box button:hover {
+  background: #333;
+}
+
+.auth-box .close-auth {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.auth-box p {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #444;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
