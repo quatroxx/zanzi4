@@ -522,7 +522,7 @@ footer {
 }
 @font-face {
   font-family: 'Northwood High';
-  src: url('fonts/northwood high.ttf') format('truetype');
+  src: url('fonts/northwood-high.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
