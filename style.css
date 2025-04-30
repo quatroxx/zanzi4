@@ -47,6 +47,10 @@ header {
 
 /* Hamburger Menu */
 .hamburger {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
   cursor: pointer;
   display: flex;
   align-items: center;
