@@ -510,12 +510,13 @@ footer {
 .hidden {
   display: none;
 }
-login-link {
+.login-link {
   font-size: 14px;
   text-decoration: none;
   color: #111;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
+  margin-right: 10px; /* sağdan boşluk */
 }
 
 .login-link:hover {
