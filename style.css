@@ -346,7 +346,6 @@ footer {
   opacity: 1;
   pointer-events: all;
 }
-<style>
   .menu-links li a.highlight {
     color: #E63946; /* Kırmızı - Yeni Gelenler */
     font-weight: 600;
@@ -370,7 +369,7 @@ footer {
     padding: 0;
     margin-top: 60px;
   }
-</style>
+
 /* -------------------
    Sliding Menu Temel Stil
 -------------------- */
