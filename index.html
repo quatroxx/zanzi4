@@ -236,6 +236,16 @@
     <p>ZANZI Lookbook SS25 – a curated edit of silhouettes designed to move with presence.</p>
   </section>
 </main>
+<div id="auth-modal" class="auth-modal hidden">
+  <div class="auth-box">
+    <h2 id="auth-title">Giriş Yap</h2>
+    <input type="email" placeholder="E-posta" />
+    <input type="password" placeholder="Şifre" />
+    <button onclick="submitAuth()">Devam Et</button>
+    <p id="toggle-auth" onclick="toggleAuthMode()">Henüz üye değil misiniz? Kayıt Ol</p>
+    <span class="close-auth" onclick="closeAuthModal()">×</span>
+  </div>
+</div>
 
 <footer>
   <p>© 2025 ZANZI — Instagram | Contact</p>
