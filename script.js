@@ -156,8 +156,3 @@ function toggleFavorite(icon) {
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-.hero-overlay {
-  color: black;
-  opacity: 1;
-  pointer-events: auto;
-}
