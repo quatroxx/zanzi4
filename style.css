@@ -116,12 +116,11 @@ header {
 }
 
 .close-btn {
-  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 20px; /* ← SOL DEĞİL, SAĞA YASLADIK */
+  z-index: 1000;
   cursor: pointer;
-  text-align: right;
-  margin-bottom: 40px;
-  padding-right: 10px;
-  transition: transform 0.3s ease;
 }
 
 .close-btn:hover {
