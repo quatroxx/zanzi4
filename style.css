@@ -6,14 +6,6 @@ body {
   background: #fff;
   color: #111;
 }
-@font-face {
-  font-family: 'Northwood High';
-  src: url('fonts/NorthwoodHigh.woff2') format('woff2'),
-       url('fonts/NorthwoodHigh.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 
 h1, h2 {
   font-family: 'Inter', sans-serif;
@@ -529,12 +521,10 @@ footer {
   color: #E63946;
 }
 
-.logo {
-  font-family: 'Northwood High', serif;
-  font-size: 28px;
-  letter-spacing: 1px;
-  font-weight: normal;
-  text-transform: uppercase;
+.logo-img {
+  height: 32px; /* ya da dilediğin yükseklik */
+  width: auto;
+  display: block;
 }
 
 
