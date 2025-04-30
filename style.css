@@ -137,7 +137,7 @@ main {
   padding: 10px;
   text-align: center;
   background-color: #f8f8f8; /* açık gri zemin */
-  height: 300px; /* görünür yükseklik */
+  height: 200px; /* görünür yükseklik */
   display: flex;
   flex-direction: column;
   justify-content: center;
