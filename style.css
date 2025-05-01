@@ -43,7 +43,7 @@ header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-left: 140px; /* ← bunu ekle */
+  margin-left: 140px;
 }
 
 .logo {
