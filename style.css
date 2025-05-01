@@ -46,10 +46,13 @@ header {
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 600;
+  font-family: 'Northwood High', serif;
+  font-size: 32px;
+  font-weight: normal;
   letter-spacing: 1px;
+  color: #111;
 }
+
 
 /* Hamburger Menu */
 .hamburger {
