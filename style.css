@@ -54,6 +54,7 @@ header {
 
 .logo {
   font-family: 'Northwood High', serif;
+  text-transform: lowercase; /* Metni küçük harf yapar */
 }
 
 
