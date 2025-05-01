@@ -146,7 +146,7 @@
             <div class="slider" data-offset="0">
               ${product.images.map(img => `
                 <div class="slide-item">
-                  <img src="${img}" alt="${product.name}" loading="lazy">
+                  <img src="${img}" alt="${product.title}" loading="lazy">
                 </div>
               `).join("")}
             </div>
@@ -155,7 +155,7 @@
           </div>
           <div class="product-info">
             <div class="info-top">
-              <a href="${product.link}"><h2>${product.name}</h2></a>
+              <a href="${product.url}"><h2>${product.title}</h2></a>
               <div class="favorite-icon" onclick="toggleFavorite(this)">
                 <svg viewBox="0 0 24 24" class="heart" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
