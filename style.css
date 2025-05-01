@@ -325,7 +325,11 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
+@media (max-width: 768px) {
+  .logo {
+    font-size: 20px; /* veya istediğin başka bir küçük boyut */
+  }
+}
 @media (max-width: 768px) {
   .lookbook {
     grid-template-columns: 1fr;
