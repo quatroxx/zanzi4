@@ -134,10 +134,17 @@ header {
 .close-btn {
   position: absolute;
   top: 20px;
-  right: 20px; /* ← SOL DEĞİL, SAĞA YASLADIK */
-  z-index: 1000;
+  right: 20px;
+  z-index: 1001;
   cursor: pointer;
+  display: block;
 }
+
+.close-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
 
 .close-btn:hover {
   transform: rotate(90deg);
