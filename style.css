@@ -139,7 +139,12 @@ header {
   cursor: pointer;
   display: block;
 }
-
+@media (max-width: 768px) {
+  .close-btn {
+    right: auto;
+    left: 20px; /* sola alır */
+  }
+}
 .close-btn svg {
   width: 24px;
   height: 24px;
