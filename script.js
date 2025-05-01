@@ -187,7 +187,7 @@ function toggleAuthMode() {
 function submitAuth() {
   alert("Henüz arka uç (backend) hazır değil 🙃");
 }
-fetch("products.json")
+fetch("./products.json")
   .then(res => res.json())
   .then(products => {
     const lookbook = document.querySelector(".lookbook");
