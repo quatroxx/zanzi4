@@ -187,7 +187,8 @@ function toggleAuthMode() {
 function submitAuth() {
   alert("Henüz arka uç (backend) hazır değil 🙃");
 }
-fetch("./products.json")
+// Ürünleri dinamik olarak yükle
+fetch("products.json")
   .then(res => res.json())
   .then(products => {
     const lookbook = document.querySelector(".lookbook");
@@ -198,7 +199,7 @@ fetch("./products.json")
 
       card.innerHTML = `
         <div class="slider-container">
-          <div class="badge">${product.badge || ""}</div>
+          ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
           <div class="slider" data-offset="0">
             ${product.images.map(img => `
               <div class="slide-item">
@@ -227,4 +228,7 @@ fetch("./products.json")
 
       lookbook.appendChild(card);
     });
+  })
+  .catch(err => {
+    console.error("Ürünler yüklenemedi:", err);
   });
