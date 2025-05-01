@@ -257,6 +257,22 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  const currentUser = localStorage.getItem("currentUser");
+  const authArea = document.getElementById("authArea");
 
+  if (authArea) {
+    if (currentUser) {
+      authArea.innerHTML = `<button onclick="logout()">👤 ${currentUser}</button>`;
+    } else {
+      authArea.innerHTML = `<a href="#" onclick="openLoginModal()" class="login-link">Giriş Yap</a>`;
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("currentUser");
+    location.reload();
+  }
+</script>
 </body>
 </html>
