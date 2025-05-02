@@ -4,7 +4,7 @@ function toggleMenu() {
   var overlay = document.getElementById("overlay");
   var body = document.querySelector('main');
   var hamburger = document.querySelector('.hamburger');
-
+ 
   menu.classList.toggle("show-menu");
   overlay.classList.toggle("show"); // Overlay'ı da aç/kapat
   body.classList.toggle("blurred");
