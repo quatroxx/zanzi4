@@ -1,4 +1,4 @@
-// Mobil Menü Aç/Kapa Fonksiyonu
+// Mobil Menü Aç/Kapa Fonksiyonu 
 function toggleMenu() {
   var menu = document.getElementById("mobileMenu");
   var overlay = document.getElementById("overlay");
