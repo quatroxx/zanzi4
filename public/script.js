@@ -75,7 +75,6 @@ function slideNext(button) {
     currentOffset++;
     slider.style.transform = `translateX(-${currentOffset * 100}%)`;
     slider.setAttribute('data-offset', currentOffset);
-    updateDots(sliderContainer, currentOffset); // <<< eklenen satır
   }
 }
 
