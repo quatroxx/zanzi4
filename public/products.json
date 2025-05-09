@@ -8,6 +8,7 @@
     ],
     "url": "beyaz.html",
     "badge": "Yeni"
+    "colors": ["#f5f5f5", "#e8d8c3", "#c2b280"]
   },
   {
     "title": "Bitter Tulum",
@@ -16,6 +17,7 @@
       "images/bitter1.jpg"
     ],
     "url": "bitter.html"
+    "colors": ["#f5f5f5", "#e8d8c3", "#c2b280"]
   },
   {
     "title": "Ceket Takımı",
@@ -25,5 +27,6 @@
       "images/ceket2.jpg"
     ],
     "url": "ceket.html"
+    "colors": ["#f5f5f5", "#e8d8c3", "#c2b280"]
   }
 ]
