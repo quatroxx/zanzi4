@@ -571,6 +571,7 @@ footer {
 }
 .favorite-icon .heart:hover path {
   fill: #ffe0e0;
+  transform: scale(1.2);
 }
 
 
