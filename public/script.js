@@ -194,8 +194,7 @@ fetch("products.json")
 
     products.forEach(product => {
       const card = document.createElement("div");
-      card.className = "product-card fade-in";
-
+      card.className = "product-card fade-in visible";
       card.innerHTML = `
         <div class="slider-container">
           ${product.badge ? `<div class="badge">${product.badge}</div>` : ""}
