@@ -222,6 +222,13 @@ fetch("products.json")
           </div>
           <p class="price">₺${product.price}</p>
         </div>
+        ${product.colors ? `
+  <div class="color-buttons">
+    ${product.colors.map(color => `
+      <button class="color-dot" style="background-color: ${color}" title="${color}"></button>
+    `).join('')}
+  </div>` : ''}
+`;
       `;
 
       lookbook.appendChild(card);
