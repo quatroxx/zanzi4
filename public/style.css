@@ -569,7 +569,9 @@ footer {
   color: #e63946;
   border-color: #e63946;
 }
-
+.favorite-icon .heart:hover path {
+  fill: #ffe0e0;
+}
 
 
 
