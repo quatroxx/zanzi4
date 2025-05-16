@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Beyaz Elbise",
+    "price": 1299,
+    "images": [
+      "images/beyaz1.jpg",
+      "images/beyaz2.jpg"
+    ],
+    "url": "beyaz.html",
+    "badge": "Yeni",
+    "colors": [
+      { "color": "#b49a7e", "image": "images/kahve1.jpg" },
+      { "color": "#000000", "image": "images/siyah1.jpg" },
+      { "color": "#f1e4d3", "image": "images/beyaz1.jpg" },
+      { "color": "#d7d9de", "image": "images/mavi1.jpg" }
+    ]
+  },
+  {
+    "title": "Bitter Tulum",
+    "price": 1199,
+    "images": [
+      "images/bitter1.jpg"
+    ],
+    "url": "bitter.html"
+  },
+  {
+    "title": "Ceket Takımı",
+    "price": 1799,
+    "images": [
+      "images/ceket1.jpg",
+      "images/ceket2.jpg"
+    ],
+    "url": "ceket.html"
+  }
+]
