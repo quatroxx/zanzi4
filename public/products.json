@@ -6,7 +6,7 @@
       "yazlık",
       "keten"
     ],
-    "price": -,
+    "price": 0,
     "url": "beyaz.html",
     "images": [
       "images/beyaz1.jpg",
@@ -39,7 +39,7 @@
       "elbise",
       "yazlık"
     ],
-    "price": -,
+    "price": 0,
     "url": "bitter.html",
     "images": [
       "images/bitter1.jpg"
@@ -48,7 +48,7 @@
   },
   {
     "title": "21287078 Ceket Takımı",
-    "price": -,
+    "price": 0,
     "url": "ceket.html",
     "images": [
       "images/ceket1.jpg",
@@ -62,7 +62,7 @@
       "yazlık",
       "saten"
     ],
-    "price": -,
+    "price": 0,
     "url": "19Oranj1.html",
     "images": [
       "images/19Oranj1.jpg"
@@ -75,7 +75,7 @@
       "yazlık",
       "saten"
     ],
-    "price": -,
+    "price": 0,
     "url": "20Pembeparlak.html",
     "images": [
       "images/20Pembeparlak.jpg",
@@ -90,7 +90,7 @@
       "yazlık",
       "tencel"
     ],
-    "price": -,
+    "price": 0,
     "url": "21TencelTakım.html",
     "images": [
       "images/21TencelTakım.jpg"
@@ -103,7 +103,7 @@
       "yazlık",
       "keten"
     ],
-    "price": -,
+    "price": 0,
     "url": "23Ciceksarı.html",
     "images": [
       "images/23Ciceksarı.jpg"
@@ -135,7 +135,7 @@
       "yazlık",
       "viskon"
     ],
-    "price": -,
+    "price": 0,
     "url": "24Yesil1.html",
     "images": [
       "images/24Yesil1.jpg"
@@ -149,7 +149,7 @@
       "yazlık",
       "keten"
     ],
-    "price": -,
+    "price": 0,
     "url": "25Kaftan.html",
     "images": [
       "images/25Kaftan.jpg"
@@ -162,7 +162,7 @@
       "yazlık",
       "keten"
     ],
-    "price": -,
+    "price": 0,
     "url": "kahve.html",
     "images": [
       "images/kahve1.jpg",
